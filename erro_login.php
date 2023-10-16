@@ -43,7 +43,7 @@
     <div class="error-box">
         <h2>Erro de Login</h2>
         <p class="error-message">As credenciais de login estão incorretas. Por favor, tente novamente.</p>
-        <p class="error-message"><a href="login.html">Voltar para a página de login</a></p>
+        <p class="error-message"><a href="index.html">Voltar para a página de login</a></p>
     </div>
 </body>
 </html>
