@@ -16,7 +16,7 @@ if (array_key_exists($usuarioInserido, $usuarios) && $usuarios[$usuarioInserido]
     header('Location: inicial.php'); // Digite aqui sua pagina inicial
     exit();
 } else {
-    header('Location: login_erro.php?erro=1'); // Pagina de erro
+    header('Location: erro_login.php?erro=1'); // Pagina de erro
     exit();
 }
 ?>
