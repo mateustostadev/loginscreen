@@ -1,179 +1,355 @@
-
-        /* Reset */
-*{  
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-    -moz-box-sizing: border-box; 
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-  
 }
-html { background-color: #404040; }
-body { font-family:"Poppins", sans-serif; height:100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100vh;
-            margin: 0;
-            background-color: rgb(0, 45, 84);
-            background-size: cover; /* Ajusta o tamanho da imagem para cobrir todo o corpo */
-            background-position: center; /* Centraliza a imagem */
-            background-repeat: no-repeat; /* Evita a repetição da imagem */
-         }
+
+/* 1. Color Palette & 8. General Refinements: html and body */
+html {
+    background-color: #f0f0f0; /* Light grey for page background */
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    /* Removed background-color, display:flex properties. Wrapper handles layout. */
+    display: flex; /* Added back to ensure wrapper can center */
+    align-items: center; /* Added back to ensure wrapper can center */
+    justify-content: center; /* Added back to ensure wrapper can center */
+    min-height: 100vh; /* Ensures body takes full viewport height for centering */
+}
+
+/* 2. Typography & 8. General Refinements: h2 (assumed to be .active or specific to .content-login) */
+/* General h2, can be overridden by more specific selectors if needed */
 h2 {
-  text-align: left;
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #0d0d0d;
-  border-bottom: 1px solid #f6f6f6;
-  padding: 15px 15px;
-  width: 100%;
-  float: left;
+    text-align: center;
+    font-size: 24px; /* Increased font size */
+    color: #333; /* Dark grey for good contrast */
+    margin-bottom: 20px; /* Space below title */
+    padding: 10px 0; /* Vertical padding */
+    border-bottom: none; /* Removed border */
+    width: auto; /* Auto width for centered element */
+    float: none; /* Removed float */
 }
+
 .wrapper {
-  
-  display: flex;
-  align-items: center;
-  flex-direction: column; 
-  justify-content: center;
-  width: 100%;
-  min-height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%; /* Ensures wrapper takes full height if body is also full height */
+    padding: 20px; /* Add some padding around the content-login box */
 }
 
 .logo {
-   width: 250px; /* Defina a largura desejada da imagem */
-   height: auto; /* Isso manterá a proporção original da imagem */
-   margin-bottom: 5px; /* Espaço entre a imagem e o formulário de login */
-   margin-top: 15px; /* Espaço entre a imagem e o formulário de login */
-  }
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px; /* Increased margin-bottom for better spacing */
+    margin-top: 15px; /* Existing top margin */
+}
 
+/* 1. Color Palette & 3. Spacing and Alignment */
 .content-login {
-  -webkit-border-radius: 4px;
-  border-radius: 10px 10px 10px 10px;
-  background: #fff;
-  padding: 30px;
-  width: 95%;
-  max-width: 320px;
-  position: relative;
-  padding: 0px;
-  -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: center;
+    -webkit-border-radius: 10px; /* Kept original rounding */
+    border-radius: 10px;
+    background: #fff; /* White login box */
+    padding: 30px; /* Comfortable padding */
+    width: 95%;
+    max-width: 350px; /* Slightly increased max-width for more space */
+    position: relative;
+    -webkit-box-shadow: 0 10px 25px rgba(0,0,0,0.1); /* Softer shadow */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
 }
-.box-login { 
-  
-  width: 100%;
-  float: left;
-  padding: 10px;
- 
+
+/* Specific styling for h2 inside .content-login (if it has class .active from HTML) */
+.content-login h2.active {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-top: 0; /* Reset margin if any from general h2 */
+    margin-bottom: 25px; /* Space below title */
+    padding: 10px 0;
+    border-bottom: none;
+    width: auto;
+    float: none;
 }
+
+.box-login {
+    width: 100%;
+    padding: 0; /* Padding is handled by .content-login and input margins */
+    /* Removed float:left */
+}
+
+/* Styles for .box-lembrar-senha if it's still used */
 .box-lembrar-senha {
-  width:100%;
-  float:left;
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
+    width: 100%;
+    background-color: #f6f6f6;
+    border-top: 1px solid #dce8f1;
+    padding: 15px; /* Adjusted padding */
+    text-align: center;
+    -webkit-border-radius: 0 0 10px 10px;
+    border-radius: 0 0 10px 10px;
+    margin-top: 20px; /* Add margin if it follows directly after form elements */
 }
+
+/* 5. Login Button */
 .botao {
-  
-  width:100%;
-  display: block;
-  float:left;
-  background-color: #2c53d3;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  padding: 15px 80px;
-  text-align: center;
-  font-size:18px;
-  -webkit-border-radius:4px;
-  border-radius:4px;
-  transition: 0.3s;
+    width: 100%;
+    display: block;
+    background-color: rgb(0, 45, 84); /* Primary blue */
+    border: none;
+    color: #fff; /* White text */
+    cursor: pointer;
+    padding: 12px 20px; /* Adjusted padding */
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    -webkit-border-radius: 5px; /* Slightly more modern radius */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Space above the button */
 }
-.botao:hover  { background-color: #404040; }
+
+.botao:hover {
+    background-color: rgb(0, 35, 74); /* Darker shade for hover */
+}
+
+/* 4. Input Fields */
+.input-icon-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px; /* Original .campo margin-bottom */
+    background-color: #fdfdfd; /* Original .campo background-color */
+    border: 1px solid #ccc; /* Original .campo border */
+    border-radius: 5px; /* Original .campo border-radius */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* For focus effect */
+    position: relative; /* For potential future absolute positioning if needed */
+}
+
+.input-icon-wrapper i {
+    padding: 0 12px; /* Spacing for the icon */
+    color: #888; /* Icon color */
+    font-size: 16px; /* Match input field font size */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
 .campo {
-  
-  background-color: #f6f6f6;
-  border: none;
-  outline: none;
-  color: #0d0d0d;
-  padding: 10px 5px;
-  text-decoration: none;
-  font-size: 16px;
-  margin-bottom: 10px;
-  width: 100%;
-  border: 2px solid #f6f6f6;
-  -webkit-border-radius: 4px;
-  border-radius: 4px;
-  float: left;
-  transition: 0.3s;
+    flex-grow: 1; /* Input field takes remaining space */
+    border: none; /* Border is now on the wrapper */
+    outline: none; /* Outline is now on the wrapper (via box-shadow) */
+    background-color: transparent; /* Background is on the wrapper */
+    color: #333; /* Original text color */
+    padding: 12px 15px 12px 0; /* Adjusted padding: T R B L - left padding removed as icon is there */
+    font-size: 16px; /* Original font-size */
+    /* Removed: margin-bottom, width, border-radius, original background-color, border, transition */
+    /* Removed float:left (already done) */
 }
-.campo:focus {
- 
-  background-color: #fff;
-  color:#000000;
+
+.input-icon-wrapper:focus-within {
+    border-color: rgb(0, 45, 84); /* Primary blue border on focus */
+    box-shadow: 0 0 8px rgba(0, 45, 84, 0.3); /* Subtle shadow on focus */
 }
-.campo:placeholder {
-  color: #cccccc;
+
+/* .campo:focus is no longer needed as :focus-within on wrapper handles it */
+
+.campo::placeholder { /* Corrected pseudo-element */
+    color: #aaa; /* Lighter placeholder text */
 }
+
+/* 6. "Forgot password?" Link (class from HTML: .forgot-password) */
+.forgot-password {
+    display: block;
+    text-align: right;
+    margin-top: -5px; /* Pull slightly closer to the field above */
+    margin-bottom: 15px; /* Space before the button */
+    font-size: 14px;
+    color: rgb(0, 45, 84); /* Primary blue */
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: rgb(0, 35, 74); /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* 7. Error Message Area */
+#error-message-container {
+    color: #D8000C; /* Strong red for error text */
+    background-color: #FFD2D2; /* Light pink background for error */
+    border: 1px solid #D8000C;
+    padding: 10px 15px;
+    margin-bottom: 20px; /* Space below error message */
+    border-radius: 5px;
+    text-align: center;
+    font-size: 14px;
+    display: none; /* Hidden by default */
+}
+
+/* Show error container only if it has content (handled by JS to add/remove content) */
+/* A simple way to show it if it's not empty, requires JS to populate. */
+/* For CSS only, you might need a class to toggle visibility. */
+/* Let's assume JS will set display:block or add a class when error occurs. */
+/* Or, if it always exists but is empty: */
+#error-message-container:not(:empty) {
+    display: block; /* Show only if it has content */
+}
+
+
+/* Existing .link class, ensure it doesn't clash or restyle if needed */
 .link {
-    
-  color: #ed9d56;
-  display:inline-block;
-  text-decoration: none;
-  transition: 0.3s;
+    color: #ed9d56; /* Existing color from original file */
+    display: inline-block;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
-.link:hover { color:#404040; }
-/* Animação */
+
+.link:hover {
+    color: #404040; /* Existing hover color */
+}
+
+/* Animations - Retain existing animations */
 .fadeInDown {
-  -webkit-animation-name: fadeInDown;
-  animation-name: fadeInDown;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
 }
+
 @-webkit-keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
+
 @keyframes fadeInDown {
-  0% {
-    opacity: 0;
-    -webkit-transform: translate3d(0, -100%, 0);
-    transform: translate3d(0, -100%, 0);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: none;
-    transform: none;
-  }
+    0% {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: none;
+        transform: none;
+    }
 }
-/* Animação Fade-in*/
-@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+@-webkit-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 .fadeIn {
-  opacity:0;
-  -webkit-animation:fadeIn ease-in 1;
-  -moz-animation:fadeIn ease-in 1;
-  animation:fadeIn ease-in 1;
-  -webkit-animation-fill-mode:forwards;
-  -moz-animation-fill-mode:forwards;
-  animation-fill-mode:forwards;
-  -webkit-animation-duration:2s;
-  -moz-animation-duration:2s;
-  animation-duration:2s;
+    opacity: 0;
+    -webkit-animation: fadeIn ease-in 1;
+    -moz-animation: fadeIn ease-in 1;
+    animation: fadeIn ease-in 1;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: 2s;
+    -moz-animation-duration: 2s;
+    animation-duration: 2s;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* For tablets and larger phones */
+@media screen and (max-width: 768px) { /* Broader breakpoint than 600px for initial adjustments */
+    .content-login {
+        padding: 25px; /* Slightly reduce padding */
+        /* max-width remains 350px, width: 95% handles narrowing */
+    }
+
+    .logo {
+        width: 220px; /* Reduce logo size */
+        margin-bottom: 15px;
+    }
+
+    .content-login h2.active, h2 { /* Target both general h2 and specific one */
+        font-size: 22px; /* Slightly smaller heading */
+        margin-bottom: 20px;
+    }
+}
+
+/* For smaller mobile devices */
+@media screen and (max-width: 480px) {
+    .wrapper {
+        padding: 10px; /* Reduce wrapper padding to give login box more space */
+    }
+    .content-login {
+        padding: 20px; /* Reduce padding further */
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* max-width: 350px with width: 95% is fine */
+    }
+
+    .logo {
+        width: 180px; /* Smaller logo for mobile */
+        margin-top: 10px;
+        margin-bottom: 15px; /* Space between logo and title */
+    }
+
+    .content-login h2.active, h2 {
+        font-size: 20px; /* Smaller heading for mobile */
+        margin-bottom: 20px; /* Adjusted from 15px to give a bit more space to inputs */
+    }
+
+    .input-icon-wrapper {
+        margin-bottom: 12px; /* Adjusted margin for mobile */
+    }
+
+    .input-icon-wrapper i {
+        padding: 0 10px; /* Slightly reduce icon padding for mobile */
+        font-size: 15px; /* Slightly smaller icon for mobile */
+    }
+
+    .campo {
+        font-size: 15px; /* Ensure inputs are not too small */
+        padding: 12px 10px 12px 0; /* Adjust padding for tap targets, keep left padding 0 */
+        /* margin-bottom is on wrapper */
+    }
+    
+    .botao {
+        font-size: 16px; /* Keep button text readable */
+        padding: 12px 15px; /* Adjust button padding */
+        margin-top: 5px; /* Reduce top margin slightly */
+    }
+
+    .forgot-password {
+        font-size: 13px; /* Slightly smaller, was 14px. 0.8em of 16px is 12.8px */
+        margin-bottom: 12px;
+    }
+
+    #error-message-container {
+        font-size: 13px;
+        padding: 8px 10px;
+        margin-bottom: 15px;
+    }
 }

@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tela de Login</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
   <div class="wrapper fadeInDown">
@@ -11,12 +13,93 @@
         <!-- Inserir a imagem da logo aqui -->
         <img src="logo.png" alt="Logo da Empresa" class="logo">
         <h2 class="active"> Login </h2>
-        <form class="box-login" method="post" href="#">
-            <input type="text" id="username" class="campo" name="username" placeholder="Usuario">
-            <input type="password" id="password" class="campo" name="password" placeholder="Senha">
+        <div id="error-message-container"></div>
+        <form class="box-login">
+            <div class="input-icon-wrapper">
+                <i class="fas fa-user"></i>
+                <input type="text" id="username" class="campo" name="username" placeholder="Usuario">
+            </div>
+            <div class="input-icon-wrapper">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" class="campo" name="password" placeholder="Senha">
+            </div>
+            <a href="#" class="forgot-password">Esqueceu a senha?</a>
             <input type="button" class="botao" value="Entrar">
         </form>
     </div>
 </div>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const usernameInput = document.getElementById('username');
+    const passwordInput = document.getElementById('password');
+    const loginButton = document.querySelector('.botao');
+    const loginForm = document.querySelector('.box-login'); // Not used in this version, but good to have
+    const errorContainer = document.getElementById('error-message-container');
+
+    function displayMessage(message, isError = true) {
+      errorContainer.innerHTML = message;
+      if (isError) {
+        // These styles should match what's in style.css for error messages
+        errorContainer.style.color = '#D8000C'; 
+        errorContainer.style.backgroundColor = '#FFD2D2'; 
+        errorContainer.style.borderColor = '#D8000C';
+      } else {
+        // Define styles for success messages (can be adjusted)
+        errorContainer.style.color = '#4F8A10'; // Green text
+        errorContainer.style.backgroundColor = '#DFF2BF'; // Light green background
+        errorContainer.style.borderColor = '#4F8A10'; // Green border
+      }
+      errorContainer.style.display = 'block'; // Make it visible
+    }
+
+    function clearMessages() {
+      errorContainer.innerHTML = '';
+      errorContainer.style.display = 'none'; // Hide it
+      // Optional: Reset styles if they were changed for success message, to default to error for next message
+      // This ensures that if displayMessage is called without isError arg, it defaults to error styling
+      errorContainer.style.color = '#D8000C';
+      errorContainer.style.backgroundColor = '#FFD2D2';
+      errorContainer.style.borderColor = '#D8000C';
+    }
+
+    loginButton.addEventListener('click', function(event) {
+      // event.preventDefault(); // Not strictly needed for type="button"
+
+      clearMessages(); // Clear previous messages
+
+      const username = usernameInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      if (username === '') {
+        displayMessage('Usuário não pode estar em branco.'); // Default isError = true
+        return;
+      }
+
+      if (password === '') {
+        displayMessage('Senha não pode estar em branco.'); // Default isError = true
+        return;
+      }
+
+      // Simulate a specific error case for testing
+      if (username === 'error' && password === 'error') {
+        displayMessage('Credenciais inválidas (simulado).'); // Default isError = true
+        return;
+      }
+      
+      // Placeholder for successful login
+      console.log('Login attempt with User:', username, 'Password:', password);
+      displayMessage('Login bem-sucedido! Redirecionando em breve...', false); // isError = false for success
+      
+      // Example: loginForm.reset(); // Clears the form fields
+      // Example: setTimeout(() => { window.location.href = '/dashboard'; }, 2000); // Simulate redirect
+    });
+
+    // Ensure the error container is hidden if initially empty
+    // (CSS :empty selector should handle this, but this is a fallback)
+    if (errorContainer.innerHTML.trim() === '') {
+        errorContainer.style.display = 'none';
+    }
+  });
+</script>
 </body>
 </html>
